@@ -23,17 +23,7 @@ class EtudiantController extends Controller
         return view('pages.etudiants.create', compact('classes'));
     }
 
-    public function edit($id)
-    {
-        $classes = Classes::all();
-        $etudiant = Etudiants::with('user')->where('user_id', $id)->first();
-        return view('pages.etudiants.edit')->with([
-            'etudiant_id' => $etudiant['id'],
-            'niveau' => $etudiant['classe_id'],
-            'etd' => $etudiant['user'],
-            'classes' => $classes
-        ]);
-    }
+
 
     public function store(Request $request)
     {
