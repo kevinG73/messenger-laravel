@@ -17,12 +17,7 @@ class EtudiantTableSeeder extends Seeder
         \DB::table('etudiants')->insert(array(
             0 => array(
                 'id' => 1,
-                'user_id' => 2,
-                'classe_id' => 1
-            ),
-            1 => array(
-                'id' => 2,
-                'user_id' => 3,
+                'user_id' => 1,
                 'classe_id' => 1
             )
         ));

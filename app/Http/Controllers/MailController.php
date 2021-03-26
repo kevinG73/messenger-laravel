@@ -45,9 +45,11 @@ class MailController extends Controller
             $message = $request->get('message');
 
             foreach ($etudiants as $etd) {
+
                 /* envoie du mail */
                 $dest_id = $etd['user']['id'];
                 $dest_email = $etd['user']['email'];
+
                 Mail::to($dest_email)->send(new SendMail($title, $message));
 
                 /* enregistrement dans la bd */
@@ -63,6 +65,7 @@ class MailController extends Controller
                 ->with('success', 'Email envoyé avec succès .');
 
         } catch (\Exception $ex) {
+
             return redirect()->back()
                 ->withInput()
                 ->with('error', $ex->getMessage());

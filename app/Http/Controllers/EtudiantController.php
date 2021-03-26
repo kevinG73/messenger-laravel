@@ -31,7 +31,7 @@ class EtudiantController extends Controller
             'nom' => 'required|min:3|max:255|string',
             'prenom' => 'required|min:3|max:255|string',
             'tel' => 'required|min:10|max:10|string|unique:users',
-            'email' => 'required|min:3|max:255|string|unique:users',
+            'email' => 'required|min:3|max:255|email|unique:users',
         ]);
 
         /* creation user */
@@ -68,7 +68,6 @@ class EtudiantController extends Controller
 
         return redirect()->route('etudiant.index')
             ->with('success', 'Mise à jour effectuée avec succès .');
-
 
     }
 
